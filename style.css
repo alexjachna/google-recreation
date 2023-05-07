@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(5,5,5);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 50px;
+    /* background-color: red; */
+    padding: 8px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav {
+    width: 215px;
+    height: 50px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#nine-dots {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#nine-dots:hover {
+    background-color: rgba(185, 185, 185, 0.1);
+}
+
+#nine-dots img {
+    width: 16px;
+    filter: invert(90%);
+}
+
+nav > a p {
+    font-family: arial,sans-serif;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#google-account {
+    width: 32px;
+    height: 32px;
+    background-image: url(images/MoraineLake2.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#google-account:hover {
+    box-shadow: 0px 0px 0px 4px rgba(185, 185, 185, 0.1);
+}
+
+nav p:hover {
+    text-decoration: underline;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    width: 600px;
+    height: 500px;
+    margin-top: 14vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container svg {
+    filter: brightness(100000%);
+    margin-bottom: 38px;
+}
+
+#input-box {
+    min-width: 93%;
+    height: 44px;
+    margin-bottom: 16px;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+}
+
+#input-box > input {
+    flex-basis: 78%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+} 
+
+.input-image {
+    flex-basis: 11%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-input-image img {
+    width: 22px;
+}
+
+.left-input-image img {
+    width: 15px;
+    filter: invert(30%);
+}
+
+#bookmarks {
+    width: 100%;
+    height: 250px;
+    background-color: white;
+    opacity: 0.05;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 64px;
+    /* background-color: aqua; */
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#edit-page {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#edit-page:hover {
+    background-color: rgba(185, 185, 185, 0.1);
+}
+
+#edit-page img {
+    filter: invert(100%);
+    width: 16px;
+}
