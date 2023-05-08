@@ -17,4 +17,4 @@ v2: Added 'bookmarks' grid
 
 This version includes the bookmarks grid layout, with no functionality yet. Next version will include the ability to change the URL of any bookmark, which will update the favicon placeholder, and placeholder URL text.
 
-![image](https://user-images.githubusercontent.com/57778785/236728357-c4f52101-a9c9-4da2-95af-55752d5a368f.png)
+[![image](https://user-images.githubusercontent.com/57778785/236728357-c4f52101-a9c9-4da2-95af-55752d5a368f.png)](https://i.imgur.com/0S93Jb2.png)
