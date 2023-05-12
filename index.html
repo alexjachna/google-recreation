@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Copy</title>
+    <title>New Tab</title>
+    <link rel="shortcut icon" href="images/chrome-white.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,6 +36,25 @@
                     </div>                    
                 </div>
                 <div id="bookmarks">
+                    <div class="item-wrapper">
+                        <a class="item" title="YouTube" href="https://www.youtube.com/"> 
+                            <div class="item-icon">
+                                <img class="icon-item" src="https://www.youtube.com/favicon.ico" alt="">
+                            </div>
+                            <div class="item-title">
+                                <p class="title-item">YouTube</p>
+                            </div>
+                        </a>
+                        <div class="more-actions" title="More actions">
+                            <img src="images/three-dots.png" alt="">
+                        </div>
+                        <div class="options">
+                            <p onclick="openEditMenu(this)">Edit shortcut</p>
+                            <p>Remove</p>
+                        </div>
+                        <!-- Edit-shorcut here -->
+                    </div>
+                    
                     <div class="item">
                         <div class="more-actions" title="More actions">
                             <img src="images/three-dots.png" alt="">
@@ -44,6 +64,10 @@
                         </div>
                         <div class="item-title">
                             <p>Testing</p>
+                        </div>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
                         </div>
                     </div>
                     <div class="item">
@@ -56,16 +80,9 @@
                         <div class="item-title">
                             <p>Testing</p>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="more-actions" title="More actions">
-                            <img src="images/three-dots.png" alt="">
-                        </div>
-                        <div class="item-icon">
-                            <img src="" alt="">
-                        </div>
-                        <div class="item-title">
-                            <p>Testing</p>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
                         </div>
                     </div>
                     <div class="item">
@@ -78,16 +95,9 @@
                         <div class="item-title">
                             <p>Testing</p>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="more-actions" title="More actions">
-                            <img src="images/three-dots.png" alt="">
-                        </div>
-                        <div class="item-icon">
-                            <img src="" alt="">
-                        </div>
-                        <div class="item-title">
-                            <p>Testing</p>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
                         </div>
                     </div>
                     <div class="item">
@@ -100,16 +110,9 @@
                         <div class="item-title">
                             <p>Testing</p>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="more-actions" title="More actions">
-                            <img src="images/three-dots.png" alt="">
-                        </div>
-                        <div class="item-icon">
-                            <img src="" alt="">
-                        </div>
-                        <div class="item-title">
-                            <p>Testing</p>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
                         </div>
                     </div>
                     <div class="item">
@@ -122,16 +125,9 @@
                         <div class="item-title">
                             <p>Testing</p>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="more-actions" title="More actions">
-                            <img src="images/three-dots.png" alt="">
-                        </div>
-                        <div class="item-icon">
-                            <img src="" alt="">
-                        </div>
-                        <div class="item-title">
-                            <p>Testing</p>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
                         </div>
                     </div>
                     <div class="item">
@@ -143,6 +139,55 @@
                         </div>
                         <div class="item-title">
                             <p>Testing</p>
+                        </div>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="more-actions" title="More actions">
+                            <img src="images/three-dots.png" alt="">
+                        </div>
+                        <div class="item-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="item-title">
+                            <p>Testing</p>
+                        </div>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="more-actions" title="More actions">
+                            <img src="images/three-dots.png" alt="">
+                        </div>
+                        <div class="item-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="item-title">
+                            <p>Testing</p>
+                        </div>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="more-actions" title="More actions">
+                            <img src="images/three-dots.png" alt="">
+                        </div>
+                        <div class="item-icon">
+                            <img src="" alt="">
+                        </div>
+                        <div class="item-title">
+                            <p>Testing</p>
+                        </div>
+                        <div class="options">
+                            <p>Edit shortcut</p>
+                            <p>Remove</p>
                         </div>
                     </div>
                 </div>
@@ -154,6 +199,9 @@
             </div>
         </footer>
     </div>
+
+    <div id="popup-wrapper" onclick="hidePopup()"></div>
+    <div id="edit-wrapper" onclick="hideEditPopup()"></div>
     <script src="script.js"></script>
 </body>
 </html>

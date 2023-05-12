@@ -101,7 +101,7 @@ section {
 }
 
 #container svg {
-    filter: brightness(100000%);
+    /* filter: brightness(100000%); */
     margin-bottom: 38px;
 }
 
@@ -150,6 +150,11 @@ section {
     align-items: center;
 }
 
+.item-wrapper {
+    position: relative;
+    border-radius: 5px;
+}
+
 .item {
     width: 112px;
     height: 112px;
@@ -160,6 +165,7 @@ section {
     justify-content: flex-end;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .item:hover {
@@ -177,9 +183,10 @@ section {
     top: 5px;
     right: 5px;
     transition: 0.1s;
+    cursor: pointer;
 }
 
-.item:hover .more-actions {
+.item-wrapper:hover .more-actions {
     display: flex;
 }
 
@@ -197,6 +204,13 @@ section {
     height: 50px;
     background-color: white;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-icon img {
+    width: 24px;
 }
 
 .item-title {
@@ -208,6 +222,123 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black;
+}
+
+.options {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 125px;
+    height: 86px;
+    border-radius: 5px;
+    background-color: rgb(45,46,49);
+}
+
+.options.active {
+    display: flex;
+    z-index: 11;
+}
+
+.options > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    height: 36px;
+    color: rgb(233, 233, 233);
+    font-size: 13px;
+}
+
+.options > p:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+.edit-shortcut {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -133px;
+    margin-left: -255px; 
+    width: 510px;
+    height: 266px;
+    background-color: rgb(41,42,45);
+    border-radius: 8px;
+    z-index: 11;
+    padding: 20px;
+}
+
+.edit-shortcut > input {
+    width: 100%;
+    background-color: rgb(29,29,31);
+    margin-top: 8px;
+    border-radius: 5px;
+    border: none;
+    height: 25px;
+    padding: 0 15px;
+    color: white;
+}
+
+.edit-shortcut > input:focus {
+    outline: 1px solid rgb(138,180,248);
+}
+
+.edit-title {
+    color: rgb(230, 230, 230);
+    font-size: 15px;
+}
+
+.edit-name, .edit-url {
+    color: rgb(165, 165, 165);
+    font-size: 10px;
+}
+
+.edit-name {
+    padding-top: 15px;
+}
+
+.edit-url {
+    padding-top: 20px;
+}
+
+.edit-shortcut-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+}
+
+.edit-button {
+    width: 70px;
+    height: 32px;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.edit-cancel-button {
+    width: 75px;
+    margin-right: 10px;
+    border: 1px solid grey;
+    color: rgb(138,180,248);
+    background-color: rgb(41,42,45);
+}
+
+.edit-cancel-button:hover {
+    background-color: rgb(79, 81, 87);
+}
+
+.edit-done-button {
+    border: none;
+    color: rgb(41,42,45);
+    background-color: rgb(138,180,248);
 }
 
 footer {
@@ -220,6 +351,26 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+#popup-wrapper, #edit-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+}
+
+#edit-wrapper {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#popup-wrapper.active, #edit-wrapper.active {
+    display: block;
 }
 
 #edit-page {
