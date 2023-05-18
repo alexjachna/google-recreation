@@ -27,3 +27,11 @@ This version includes the ability to perform 'more actions' on each bookmark, wh
 
 ![image](https://github.com/alexjachna/google-recreation/assets/57778785/5c59ecd7-27d2-4567-8f92-ef6e020b90f9)
 ![image](https://github.com/alexjachna/google-recreation/assets/57778785/795c671e-d7d1-4342-be4b-8166732226e7)
+
+--------------------------
+
+v4: Added extra functionality, such as the ability to add and delete new shortcuts.
+
+This version gives users the ability to add and delete new shortcuts. Still missing the capability to cap the number of shortcuts to 10.
+
+![image](https://github.com/alexjachna/google-recreation/assets/57778785/eb72b42b-f449-4506-82a2-dea4bd297ff3)
