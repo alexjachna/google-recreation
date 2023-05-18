@@ -1,29 +1,30 @@
+// Global Variables
 const moreActions = document.querySelectorAll('.more-actions');
 const popupMenu = document.getElementById('popup-wrapper');
 const editMenu = document.getElementById('edit-wrapper');
+const bookmarks = document.getElementById('bookmarks');
+var itemCount = bookmarks.childElementCount;
 
-moreActions.forEach(item => {
-    item.addEventListener('click', e => {
-        var parent = item.parentElement
-        var optionsMenu = parent.getElementsByClassName('options')[0]
+function addMoreActions(item) {
+    var parent = item.parentElement
+    var optionsMenu = parent.getElementsByClassName('options')[0]
 
-        popupMenu.classList.add('active')
-        optionsMenu.classList.toggle('active')
+    popupMenu.classList.add('active')
+    optionsMenu.classList.toggle('active')
 
-        if (!e) var e = window.event
-        e.cancelBubble = true
-        if (e.stopPropagation) e.stopPropagation()
-    })
-});
+    if (!e) var e = window.event
+    e.cancelBubble = true
+    if (e.stopPropagation) e.stopPropagation()
+}
 
-function hidePopup() {
-    moreActions.forEach(item => {
-        var parent = item.parentElement;
-        var optionsMenu = parent.getElementsByClassName('options')[0];
+// -----------------------------
+// Edit shortcut popups and functions
+// -----------------------------
+function hidePopup(item) {
+    var optionsMenu = item.getElementsByClassName('options')[0];
 
-        popupMenu.classList.remove('active')
-        optionsMenu.classList.remove('active');
-    })   
+    popupMenu.classList.remove('active')
+    optionsMenu.classList.remove('active');   
 }
 
 function hideEditPopup() {
@@ -57,7 +58,7 @@ function openEditMenu(item) {
     parent.append(selectedItem);
 
     // Hide the previous edit-shortcuts popup
-    hidePopup();
+    hidePopup(parent);
 
     // Display the edit-wrapper box
     editMenu.classList.add('active');
@@ -88,9 +89,102 @@ function changeItem(item) {
     closeEditMenu(item);
 }
 
+function removeItem(item) {
+    // close Edit menu
+    closeEditMenu(item);
+
+    item.parentElement.parentElement.remove();
+}
+
 function closeEditMenu(item) {
-    var parent = item.parentElement.parentElement.parentElement;
+    var parent = item.parentElement.parentElement;
 
     editMenu.classList.remove('active');
-    parent.removeChild(parent.lastChild);
+    parent.remove();
 }
+
+
+// -----------------------------
+// New Item popups and functions
+// -----------------------------
+function addNewTab() {
+    if (itemCount < 10) {
+        var newItem = document.createElement('div');
+        newItem.classList.add('item-wrapper');
+        var itemContent = `
+        <a class="item" title="Add shortcut" onclick="openNewItemMenu(this)"> 
+        <div class="item-icon">
+            <img class="icon-item" src="images/plus-icon.png" alt="">
+        </div>
+        <div class="item-title">
+            <p class="title-item">Add shortcut</p>
+        </div>
+        </a>`
+    
+        newItem.innerHTML = itemContent;
+        bookmarks.append(newItem);
+    }
+    // else if (itemCount == 10) {
+    //     bookmarks.lastChild.remove();
+    // }
+}
+
+function openNewItemMenu(item) {
+    var parent = item.parentElement;
+    var selectedItem = document.createElement('div');
+    selectedItem.classList.add('edit-shortcut');
+    var itemContent = `
+    <p class="edit-title">Add shortcut</p>
+    <p class="edit-name">Name</p>
+    <input class="input-name" type="text">
+    <p class="edit-url">URL</p>
+    <input class="input-url" type="text">
+    <div class="edit-shortcut-buttons">
+        <button class="edit-button edit-cancel-button" onclick="closeNewItemMenu(this)">Cancel</button>
+        <button class="edit-button edit-done-button" onclick="addItem(this)">Done</button>
+    </div>`
+
+    selectedItem.innerHTML = itemContent;
+    parent.append(selectedItem);
+
+    // Display the edit-wrapper box
+    editMenu.classList.add('active');
+}
+
+function addItem(item) {
+    var parent = item.parentElement.parentElement;
+    var name = parent.getElementsByClassName('input-name')[0].value;
+    var url = parent.getElementsByClassName('input-url')[0].value;
+
+    var selectedItem = document.createElement('div');
+    selectedItem.classList.add('item-wrapper');
+    var itemContent = `
+    <a class="item" title="${name}" href="${url}"> 
+        <div class="item-icon">
+            <img class="icon-item" src="${url}favicon.ico" alt="">
+        </div>
+        <div class="item-title">
+            <p class="title-item">${name}</p>
+        </div>
+    </a>
+    <div class="more-actions" title="More actions" onclick="addMoreActions(this)">
+        <img src="images/three-dots.png" alt="">
+    </div>
+    <div class="options">
+        <p onclick="openEditMenu(this)">Edit shortcut</p>
+        <p onclick="removeItem(this)">Remove</p>
+    </div>`
+
+    selectedItem.innerHTML = itemContent;
+    bookmarks.append(selectedItem);
+
+    closeNewItemMenu(item);
+}
+
+function closeNewItemMenu(item) {
+    var parent = item.parentElement.parentElement;
+
+    editMenu.classList.remove('active');
+    parent.remove();
+}
+
