@@ -357,7 +357,7 @@ footer {
     align-items: center;
 }
 
-#popup-wrapper, #edit-wrapper {
+.popup-wrapper, #edit-wrapper {
     display: none;
     position: fixed;
     top: 0;
@@ -373,7 +373,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-#popup-wrapper.active, #edit-wrapper.active {
+.popup-wrapper.active, #edit-wrapper.active {
     display: block;
 }
 

@@ -1,13 +1,11 @@
 // Global Variables
-const moreActions = document.querySelectorAll('.more-actions');
-const popupMenu = document.getElementById('popup-wrapper');
 const editMenu = document.getElementById('edit-wrapper');
 const bookmarks = document.getElementById('bookmarks');
-var itemCount = bookmarks.childElementCount;
 
 function addMoreActions(item) {
     var parent = item.parentElement
     var optionsMenu = parent.getElementsByClassName('options')[0]
+    var popupMenu = parent.getElementsByClassName('popup-wrapper')[0];
 
     popupMenu.classList.add('active')
     optionsMenu.classList.toggle('active')
@@ -21,7 +19,9 @@ function addMoreActions(item) {
 // Edit shortcut popups and functions
 // -----------------------------
 function hidePopup(item) {
-    var optionsMenu = item.getElementsByClassName('options')[0];
+    var parent = item.parentElement
+    var optionsMenu = parent.getElementsByClassName('options')[0];
+    var popupMenu = parent.getElementsByClassName('popup-wrapper')[0];
 
     popupMenu.classList.remove('active')
     optionsMenu.classList.remove('active');   
@@ -90,9 +90,14 @@ function changeItem(item) {
 }
 
 function removeItem(item) {
+    var itemCount;
     // close Edit menu
     closeEditMenu(item);
 
+    bookmarks.removeChild(bookmarks.lastElementChild);
+    itemCount = bookmarks.childElementCount;
+
+    addNewTab(itemCount);
     item.parentElement.parentElement.remove();
 }
 
@@ -107,7 +112,8 @@ function closeEditMenu(item) {
 // -----------------------------
 // New Item popups and functions
 // -----------------------------
-function addNewTab() {
+function addNewTab(itemCount) {
+    console.log(itemCount);
     if (itemCount < 10) {
         var newItem = document.createElement('div');
         newItem.classList.add('item-wrapper');
@@ -124,9 +130,9 @@ function addNewTab() {
         newItem.innerHTML = itemContent;
         bookmarks.append(newItem);
     }
-    // else if (itemCount == 10) {
-    //     bookmarks.lastChild.remove();
-    // }
+    else if (itemCount >= 10) {
+        console.log('hello there')
+    }
 }
 
 function openNewItemMenu(item) {
@@ -155,6 +161,7 @@ function addItem(item) {
     var parent = item.parentElement.parentElement;
     var name = parent.getElementsByClassName('input-name')[0].value;
     var url = parent.getElementsByClassName('input-url')[0].value;
+    var itemCount;
 
     var selectedItem = document.createElement('div');
     selectedItem.classList.add('item-wrapper');
@@ -173,11 +180,17 @@ function addItem(item) {
     <div class="options">
         <p onclick="openEditMenu(this)">Edit shortcut</p>
         <p onclick="removeItem(this)">Remove</p>
-    </div>`
+    </div>
+    <div class="popup-wrapper" onclick="hidePopup(this)"></div>`
 
     selectedItem.innerHTML = itemContent;
-    bookmarks.append(selectedItem);
 
+    // console.log(bookmarks.lastElementChild);
+    bookmarks.removeChild(bookmarks.lastElementChild);
+    bookmarks.append(selectedItem);
+    itemCount = bookmarks.childElementCount;
+
+    addNewTab(itemCount);
     closeNewItemMenu(item);
 }
 
