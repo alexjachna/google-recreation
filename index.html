@@ -17,7 +17,7 @@
                 <div id="nine-dots">
                     <img src="images/nine-dots.png" alt="">
                 </div>
-                <div id="google-account">
+                <div id="google-account" onclick="showAccounts()">
                 </div>
             </nav>
         </header>
@@ -36,7 +36,7 @@
                     </div>                    
                 </div>
                 <div id="bookmarks">
-                    <div class="item-wrapper">
+                    <div id="bookmark" class="item-wrapper">
                         <a class="item" title="YouTube" href="https://www.youtube.com/"> 
                             <div class="item-icon">
                                 <img class="icon-item" src="https://www.youtube.com/favicon.ico" alt="">
@@ -55,8 +55,7 @@
                         <div class="popup-wrapper" onclick="hidePopup(this)"></div>
                         <!-- Edit-shortcut here -->
                     </div>
-                    
-                    <div class="item-wrapper">
+                    <div id="bookmark" class="item-wrapper">
                         <a class="item" title="Twitter" href="https://twitter.com/"> 
                             <div class="item-icon">
                                 <img class="icon-item" src="https://twitter.com/favicon.ico" alt="">
@@ -75,7 +74,7 @@
                         <div class="popup-wrapper" onclick="hidePopup(this)"></div>
                         <!-- Edit-shortcut here -->
                     </div>
-                    <div class="item-wrapper">
+                    <div id="bookmark" class="item-wrapper">
                         <a class="item" title="Instagram" href="https://www.instagram.com/"> 
                             <div class="item-icon">
                                 <img class="icon-item" src="https://www.instagram.com/favicon.ico" alt="">
@@ -94,7 +93,7 @@
                         <div class="popup-wrapper" onclick="hidePopup(this)"></div>
                         <!-- Edit-shortcut here -->
                     </div>
-                    <div class="item-wrapper">
+                    <div id="bookmark" class="item-wrapper">
                         <a class="item" title="GitHub" href="https://github.com/"> 
                             <div class="item-icon">
                                 <img class="icon-item" src="https://github.com/favicon.ico" alt="">
@@ -113,7 +112,7 @@
                         <div class="popup-wrapper" onclick="hidePopup(this)"></div>
                         <!-- Edit-shortcut here -->
                     </div>
-                    <div class="item-wrapper">
+                    <div id="bookmark" class="item-wrapper">
                         <a class="item" title="Twitch" href="https://www.twitch.tv/"> 
                             <div class="item-icon">
                                 <img class="icon-item" src="https://www.twitch.tv/favicon.ico" alt="">
@@ -132,7 +131,7 @@
                         <div class="popup-wrapper" onclick="hidePopup(this)"></div>
                         <!-- Edit-shortcut here -->
                     </div>
-                    <div class="item-wrapper">
+                    <div id="new-item" class="item-wrapper">
                         <a class="item" title="Add shortcut" onclick="openNewItemMenu(this)"> 
                             <div class="item-icon">
                                 <img class="icon-item" src="images/plus-icon.png" alt="">
@@ -153,7 +152,78 @@
         </footer>
     </div>
 
-    
+    <div id="other-apps"></div>
+    <div id="gmail-accounts">
+        <div id="accounts">
+            <div class="main-account">
+                <div class="ma-left">
+                    <div class="account-image">
+                        <div class="change-account-image">
+                            <img src="images/camera.png" alt="">
+                        </div>
+                    </div>  
+                </div>
+                <div class="ma-right">
+                    <div class="email-info">
+                        <p>John Doe</p>
+                        <p>johndoe@gmail.com</p>
+                    </div>
+                    <div class="manage-account">
+                        <p>Manage your Google Account</p>
+                    </div>
+                </div>
+            </div>
+            <div class="other-accounts">
+                <div class="alt-accounts-container">
+                    <div class="alt-account">
+                        <div class="alt-image">
+                            <img src="images/MoraineLake2.jpg" alt="">
+                        </div>
+                        <div class="email-info">
+                            <p>John Doe</p>
+                            <p>johndoe@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="alt-account">
+                        <div class="alt-image">
+                            <img src="images/MoraineLake2.jpg" alt="">
+                        </div>
+                        <div class="email-info">
+                            <p>John Doe</p>
+                            <p>johndoe@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="alt-account">
+                        <div class="alt-image">
+                            <img src="images/MoraineLake2.jpg" alt="">
+                        </div>
+                        <div class="email-info">
+                            <p>John Doe</p>
+                            <p>johndoe@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-account-container">
+                    <div class="add-account-image">
+                        <img src="images/add-account.png" alt="">
+                    </div>
+                    <p>Add another account</p>
+                </div>
+            </div>
+        </div>
+        <div id="sign-out">
+            <div class="sign-out-image">
+                <img src="images/log-out.png" alt="">    
+            </div>
+            <span>Sign out of all accounts</span>
+        </div>
+        <div id="accounts-extra">
+            <span>Privacy Policy</span>
+            <p>•</p>
+            <span>Terms of Service</span>
+        </div>
+        <div class="gmail-wrapper"></div>
+    </div>
     <div id="edit-wrapper" onclick="hideEditPopup()"></div>
     <script src="script.js"></script>
 </body>

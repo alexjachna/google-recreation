@@ -1,6 +1,7 @@
 // Global Variables
 const editMenu = document.getElementById('edit-wrapper');
 const bookmarks = document.getElementById('bookmarks');
+const gmailAccounts = document.getElementById('gmail-accounts');
 
 function addMoreActions(item) {
     var parent = item.parentElement
@@ -71,7 +72,6 @@ function changeItem(item) {
     var url = editShortcutBox.getElementsByClassName('input-url')[0].value;
 
     // variables for content to be changed
-    // currentItem is 'item-wrapper'
     var itemWrapper = editShortcutBox.parentElement;
     var myItem = itemWrapper.getElementsByClassName('item')[0];
     var title = myItem.getElementsByClassName('title-item')[0];
@@ -85,20 +85,23 @@ function changeItem(item) {
     title.innerText = name;
     icon.src = favicon;
     
+    hidePopup(editShortcutBox);
     // close Edit menu
     closeEditMenu(item);
 }
 
 function removeItem(item) {
-    var itemCount;
-    // close Edit menu
-    closeEditMenu(item);
+    var itemCount = bookmarks.childElementCount;
+    var lastItem = bookmarks.lastElementChild.id;
 
-    bookmarks.removeChild(bookmarks.lastElementChild);
-    itemCount = bookmarks.childElementCount;
-
-    addNewTab(itemCount);
-    item.parentElement.parentElement.remove();
+    if (lastItem == 'new-item') {
+        closeEditMenu(item);
+    }
+    else {
+        item.parentElement.parentElement.remove();
+        itemCount = bookmarks.childElementCount;
+        addNewTab(itemCount);
+    }
 }
 
 function closeEditMenu(item) {
@@ -113,9 +116,10 @@ function closeEditMenu(item) {
 // New Item popups and functions
 // -----------------------------
 function addNewTab(itemCount) {
-    console.log(itemCount);
+    console.log("added new tab: " + itemCount);
     if (itemCount < 10) {
         var newItem = document.createElement('div');
+        newItem.setAttribute("id", "new-item")
         newItem.classList.add('item-wrapper');
         var itemContent = `
         <a class="item" title="Add shortcut" onclick="openNewItemMenu(this)"> 
@@ -164,6 +168,7 @@ function addItem(item) {
     var itemCount;
 
     var selectedItem = document.createElement('div');
+    selectedItem.setAttribute("id", "bookmark");
     selectedItem.classList.add('item-wrapper');
     var itemContent = `
     <a class="item" title="${name}" href="${url}"> 
@@ -185,7 +190,6 @@ function addItem(item) {
 
     selectedItem.innerHTML = itemContent;
 
-    // console.log(bookmarks.lastElementChild);
     bookmarks.removeChild(bookmarks.lastElementChild);
     bookmarks.append(selectedItem);
     itemCount = bookmarks.childElementCount;
@@ -201,3 +205,8 @@ function closeNewItemMenu(item) {
     parent.remove();
 }
 
+// Other functions
+
+function showAccounts() {
+    gmailAccounts.classList.toggle('active');
+}
