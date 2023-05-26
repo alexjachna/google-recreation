@@ -36,8 +36,18 @@ This version gives users the ability to add and delete new shortcuts. Still miss
 
 ![image](https://github.com/alexjachna/google-recreation/assets/57778785/eb72b42b-f449-4506-82a2-dea4bd297ff3)
 
+--------------------------
+
 v5: Starting to add outside functionality (outside of the bookmarked items in the center)
 
 This version contains the ability to interact with other items outside of the bookmarked items. Current functionality only includes being able to open the gmail-accounts section in the top right corner. Further functionality will include the ability to add and delete accounts, as well as change the theme of the page.
 
 ![image](https://github.com/alexjachna/google-recreation/assets/57778785/3d1a7711-1329-4043-acf3-deaba82702f0)
+
+--------------------------
+
+v6: Added 'other-apps' section
+
+This version contains the ability to open the 'other-apps' section, which is the 'nine dots' button on the top right.
+
+![image](https://github.com/alexjachna/google-recreation/assets/57778785/9e42d6bb-e3b5-4fb3-9494-86cba08eb1cc)
