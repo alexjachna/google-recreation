@@ -1,7 +1,15 @@
 // Global Variables
 const editMenu = document.getElementById('edit-wrapper');
 const bookmarks = document.getElementById('bookmarks');
-const gmailAccounts = document.getElementById('gmail-accounts');
+const otherApps = document.getElementById('nine-dots');
+const gmailAccounts = document.getElementById('google-account');
+const popups = [otherApps, gmailAccounts];
+
+function preventWindowClose() {
+    if (!e) var e = window.event
+    e.cancelBubble = true
+    if (e.stopPropagation) e.stopPropagation()
+}
 
 function addMoreActions(item) {
     var parent = item.parentElement
@@ -207,6 +215,15 @@ function closeNewItemMenu(item) {
 
 // Other functions
 
-function showAccounts() {
-    gmailAccounts.classList.toggle('active');
-}
+// function showAccounts() {
+//     gmailAccounts.classList.toggle('active');
+// }
+
+window.addEventListener('click', ({ target }) => {
+    const popup = target.closest('.popup');
+    const clickedOnClosedPopup = popup && !popup.classList.contains('active');
+    
+    popups.forEach(p => p.classList.remove('active'));
+    
+    if (clickedOnClosedPopup) popup.classList.add('active');  
+  });
