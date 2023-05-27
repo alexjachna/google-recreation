@@ -51,3 +51,11 @@ v6: Added 'other-apps' section
 This version contains the ability to open the 'other-apps' section, which is the 'nine dots' button on the top right.
 
 ![image](https://github.com/alexjachna/google-recreation/assets/57778785/9e42d6bb-e3b5-4fb3-9494-86cba08eb1cc)
+
+--------------------------
+
+v7: Added account.html content
+
+This version includes just the HTML/CSS of the ability to add a gmail account. Functionality will only include the ability to input a username, which will then be given a random image as their wallpaper/profile picture. This will be added back to the list of gmail accounts, which will be limited to 5.
+
+![image](https://github.com/alexjachna/google-recreation/assets/57778785/03cb46c2-ad1f-4fce-8229-e3a12ce20a05)
