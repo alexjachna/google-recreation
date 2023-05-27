@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+.screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    font-family: 'Roboto', sans-serif;
+    width: 448px;
+    height: 500px;
+    padding: 48px 40px 36px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.container img {
+    width: 72px;
+}
+
+.title {
+    padding-top: 14px;
+    font-size: 22px;
+}
+
+.description {
+    padding-top: 8px;
+}
+
+.email-input {
+    width: 100%;
+    padding-top: 36px;
+    position: relative;
+}
+
+.email-input::before {
+    content: 'Email or phone';
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    background: white;
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    width: 90px;
+    height: 14px;
+    text-align: center;
+}
+
+.email-input > input {
+    width: 100%;
+    height: 48px;
+    background-color: rgb(232,240,254);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 4px;
+}
+
+.email-input > a p {
+    padding-top: 12px;
+    color: rgb(26,115,232);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.learn-more {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.learn-more > p:nth-child(1) {
+    padding: 42px 0 10px;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 14px;
+}
+
+.learn-more a {
+    color: rgb(26,115,232);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.create-account {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-account > p {
+    width: 112px;
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(26,115,232);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.create-account > p:hover {
+    color: rgb(2, 82, 187);
+    background-color: rgba(26, 115, 232, 0.05);
+}
+
+.sign-in {
+    width: 76px;
+    height: 36px;
+    background-color: rgb(26,115,232);
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
