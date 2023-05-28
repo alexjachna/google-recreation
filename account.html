@@ -4,27 +4,51 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Sign in - Google Accounts</title>
+        <link rel="shortcut icon" href="images/other-apps/google-logo.png" type="image/x-icon">
         <link rel="stylesheet" href="style-account.css">
     </head>
     <body>
         <div class="screen">
             <div class="container">
-                <img src="images/google_logo.svg" alt="">
-                <p class="title">Sign in</p>
-                <p class="description">Use your Google Account</p>
-                <div class="email-input">
-                    <input type="text">
-                    <a href=""><p>Forgot email?</p></a>
+
+                <div class="container-1">
+                    <img src="images/google_logo.svg" alt="">
+                    <p class="title">Sign in</p>
+                    <p class="description">Use your Google Account</p>
+                    <div class="email-input">
+                        <input type="email" class="email">
+                        <a href=""><p>Forgot email?</p></a>
+                    </div>
+                    <div class="learn-more">
+                        <p>Not your computer? Use Guest mode to sign in privately.</p>
+                        <a href=""><p>Learn more</p></a>
+                    </div>
+                    <div class="create-account">
+                        <p>Create account</p>
+                        <div class="next" onclick="nextPage(this)">Next</div>
+                    </div>
                 </div>
-                <div class="learn-more">
-                    <p>Not your computer? Use Guest mode to sign in privately.</p>
-                    <a href=""><p>Learn more</p></a>
+
+                <div class="container-2">
+                    <img src="images/google_logo.svg" alt="">
+                    <p class="title">Welcome Back.</p>
+                    <p class="email-text">placeholder@gmail.com</p>
+                    <div class="description2-container">
+                        <p class="description2">To continue, first verify it's you</p>
+                    </div>
+                    <div class="name-input">
+                        <input type="text" class="name">
+                    </div>
+                    <div class="password-input">
+                        <input type="password" class="password">
+                    </div>
+                    <div class="create-account">
+                        <p>Forgot Password?</p>
+                        <div class="sign-in">Sign in</div>
+                    </div>
                 </div>
-                <div class="create-account">
-                    <p>Create account</p>
-                    <div class="sign-in">Next</div>
-                </div>
+                
             </div>
             <div class="bottom-nav">
 

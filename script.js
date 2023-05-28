@@ -214,16 +214,25 @@ function closeNewItemMenu(item) {
 }
 
 // Other functions
-
-// function showAccounts() {
-//     gmailAccounts.classList.toggle('active');
-// }
-
-window.addEventListener('click', ({ target }) => {
-    const popup = target.closest('.popup');
-    const clickedOnClosedPopup = popup && !popup.classList.contains('active');
+// window.addEventListener('click', ({ target }) => {
+//     const popup = target.closest('.popup');
+//     const clickedOnClosedPopup = popup && !popup.classList.contains('active');
     
-    popups.forEach(p => p.classList.remove('active'));
+//     popups.forEach(p => p.classList.remove('active'));
     
-    if (clickedOnClosedPopup) popup.classList.add('active');  
-  });
+//     if (clickedOnClosedPopup) popup.classList.add('active');  
+//   });
+
+function nextPage(item) {
+    var container = item.parentElement.parentElement;
+    var container2 = document.querySelector('.container-2');
+    var email = container.querySelector('.email').value;
+    
+    container.style.display = "none";
+    container2.style.display = "flex";
+    container2.getElementsByClassName('email-text')[0].innerText = email;
+}
+
+function signIn(item) {
+
+}

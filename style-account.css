@@ -34,6 +34,13 @@ html {
     color: rgba(0, 0, 0, 0.9);
 }
 
+.container-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .container img {
     width: 72px;
 }
@@ -47,7 +54,7 @@ html {
     padding-top: 8px;
 }
 
-.email-input {
+.email-input, .name-input, .password-input {
     width: 100%;
     padding-top: 36px;
     position: relative;
@@ -55,6 +62,19 @@ html {
 
 .email-input::before {
     content: 'Email or phone';
+    width: 90px;
+}
+
+.name-input::before {
+    content: 'Name';
+    width: 40px;
+}
+
+.password-input::before {
+    content: 'Password';
+}
+
+.email-input::before, .name-input::before, .password-input::before {
     font-size: 12px;
     color: rgba(0, 0, 0, 0.6);
     background: white;
@@ -62,18 +82,19 @@ html {
     position: absolute;
     top: 30px;
     left: 10px;
-    width: 90px;
     height: 14px;
     text-align: center;
 }
 
-.email-input > input {
-    width: 100%;
+.email, .name, .password {
+    width: 350px;
     height: 48px;
     background-color: rgb(232,240,254);
     border: 1px solid rgba(0, 0, 0, 0.1);
     outline: none;
     border-radius: 4px;
+    padding: 0 20px;
+    font-size: 16px;
 }
 
 .email-input > a p {
@@ -110,7 +131,7 @@ html {
 }
 
 .create-account > p {
-    width: 112px;
+    width: 120px;
     height: 30px;
     border-radius: 4px;
     display: flex;
@@ -126,7 +147,7 @@ html {
     background-color: rgba(26, 115, 232, 0.05);
 }
 
-.sign-in {
+.next, .sign-in {
     width: 76px;
     height: 36px;
     background-color: rgb(26,115,232);
@@ -139,3 +160,32 @@ html {
     align-items: center;
 }
 
+.container-2 {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.email-text {
+    margin-top: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 250px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgb(58, 58, 58);
+}
+
+.description2-container {
+    width: 100%;
+}
+
+.description2 {
+    font-size: 14px;
+    padding-top: 24px;
+}
