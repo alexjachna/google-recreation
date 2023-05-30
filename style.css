@@ -615,6 +615,7 @@ footer {
 
 .add-account-container:hover {
     background-color: rgb(55,59,65);
+    cursor: pointer;
 }
 
 .add-account-image {

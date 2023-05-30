@@ -147,10 +147,17 @@ html {
     background-color: rgba(26, 115, 232, 0.05);
 }
 
+.next:disabled, .sign-in:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
 .next, .sign-in {
+    font-family: 'Roboto', sans-serif;
     width: 76px;
     height: 36px;
     background-color: rgb(26,115,232);
+    border: none;
     color: white;
     font-size: 14px;
     font-weight: 500;
@@ -158,6 +165,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .container-2 {

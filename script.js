@@ -4,6 +4,7 @@ const bookmarks = document.getElementById('bookmarks');
 const otherApps = document.getElementById('nine-dots');
 const gmailAccounts = document.getElementById('google-account');
 const popups = [otherApps, gmailAccounts];
+const imageArray = ["images/account-images/landscape-1.jpg", "images/account-images/landscape-2.jpg", "images/account-images/landscape-3.jpg", "images/account-images/landscape-4.jpg", "images/account-images/landscape-5.jpg"]
 
 function preventWindowClose() {
     if (!e) var e = window.event
@@ -213,26 +214,64 @@ function closeNewItemMenu(item) {
     parent.remove();
 }
 
-// Other functions
-// window.addEventListener('click', ({ target }) => {
-//     const popup = target.closest('.popup');
-//     const clickedOnClosedPopup = popup && !popup.classList.contains('active');
-    
-//     popups.forEach(p => p.classList.remove('active'));
-    
-//     if (clickedOnClosedPopup) popup.classList.add('active');  
-//   });
+// Other functions //
 
-function nextPage(item) {
-    var container = item.parentElement.parentElement;
-    var container2 = document.querySelector('.container-2');
-    var email = container.querySelector('.email').value;
+// Event Listener for closing popups
+window.addEventListener('click', ({ target }) => {
+    const popup = target.closest('.popup');
+    const clickedOnClosedPopup = popup && !popup.classList.contains('active');
     
-    container.style.display = "none";
-    container2.style.display = "flex";
-    container2.getElementsByClassName('email-text')[0].innerText = email;
+    popups.forEach(p => p.classList.remove('active'));
+    
+    if (clickedOnClosedPopup) {
+        if (localStorage.getItem('myEmail') !== null) {
+            insertAccount();
+            localStorage.removeItem('myEmail');
+            localStorage.removeItem('myName');
+        }
+        else {
+            console.log('storage is empty.')
+        }
+        popup.classList.add('active');  
+    }
+  });
+
+function addAccount() {
+    if (document.getElementsByClassName('alt-accounts-container')[0].childElementCount < 4) {
+        let altAccounts = document.getElementsByClassName('alt-accounts-container')[0].innerHTML;
+        localStorage.setItem('accounts', altAccounts)
+        window.location.replace("./account.html");
+    }
+    else {
+        alert('too many accounts!');
+    }
+    
 }
 
-function signIn(item) {
+function insertAccount() {
+    let altAccounts = document.getElementsByClassName('alt-accounts-container')[0];
 
+    altAccounts.innerHTML = "";
+    altAccounts.innerHTML = localStorage.getItem('accounts');
+
+    var randomNum = Math.floor(Math.random() * imageArray.length);  
+
+    const email = localStorage.getItem('myEmail');
+    const name = localStorage.getItem('myName');
+    const randomImage = imageArray[randomNum];
+
+    var altsContainer = document.getElementsByClassName('alt-accounts-container')[0];
+    var newAccount = document.createElement('div');
+    newAccount.classList.add('alt-account');
+    var itemContent = `
+    <div class="alt-image">
+        <img src=${randomImage} alt="">
+    </div>
+    <div class="email-info">
+        <p>${name}</p>
+        <p>${email}</p>
+    </div>`
+
+    newAccount.innerHTML = itemContent;
+    altsContainer.append(newAccount);
 }
