@@ -419,7 +419,7 @@ footer {
     cursor: default;
 }
 
-#accounts {
+#accounts, #no-accounts {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -428,6 +428,35 @@ footer {
     width: 360px;
     height: 445px;
     margin: 8px 8px 0 8px;
+}
+
+#no-accounts {
+    display: none;
+    padding: 24px;
+    text-align: center;
+}
+
+#no-accounts > p {
+    margin: 36px 0;
+    font-size: 24px;
+    color: white;
+    line-height: 0.8;
+}
+
+.no-accounts-sign-in {
+    width: 100px;
+    font-size: 14px;
+    border: 1px solid #e3e3e37c;
+    color: white;
+    text-align: center;
+    padding: 7px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.no-accounts-sign-in:hover {
+    background-color: rgba(114, 114, 114, 0.2);
+    cursor: pointer;
 }
 
 .main-account {
@@ -451,10 +480,14 @@ footer {
     width: 68px;
     height: 68px;
     margin: 20px;
-    background-image: url(images/MoraineLake2.jpg);
-    background-size: cover;
     border-radius: 50%;
     position: relative;
+}
+
+.account-image > img {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
 }
 
 .change-account-image {
@@ -537,6 +570,11 @@ footer {
     border-bottom: 1px solid rgba(223, 223, 223, 0.233);
 }
 
+#sign-out:hover {
+    cursor: pointer;
+    background-color: rgba(114, 114, 114, 0.2);
+}
+
 .sign-out-image {
     width: 100px;
     display: flex;
@@ -590,6 +628,7 @@ footer {
 
 .alt-account:hover {
     background-color: rgb(55,59,65);
+    cursor: pointer;
 }
 
 .alt-image {

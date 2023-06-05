@@ -122,6 +122,7 @@
                             <div class="main-account">
                                 <div class="ma-left">
                                     <div class="account-image">
+                                        <img class="main-img" src="images/MoraineLake2.jpg" alt="">
                                         <div class="change-account-image">
                                             <img src="images/camera.png" alt="">
                                         </div>
@@ -129,8 +130,8 @@
                                 </div>
                                 <div class="ma-right">
                                     <div class="email-info">
-                                        <p>John Doe</p>
-                                        <p>johndoe@gmail.com</p>
+                                        <p class="main-name">Alex Jachna</p>
+                                        <p class="main-email">alexjachna1@gmail.com</p>
                                     </div>
                                     <div class="manage-account">
                                         <p>Manage your Google Account</p>
@@ -139,13 +140,13 @@
                             </div>
                             <div class="other-accounts">
                                 <div class="alt-accounts-container">
-                                    <div class="alt-account">
+                                    <div class="alt-account" onclick="switchAccount(this)">
                                         <div class="alt-image">
-                                            <img src="images/MoraineLake2.jpg" alt="">
+                                            <img class="alt-img" src="images/MoraineLake2.jpg" alt="">
                                         </div>
                                         <div class="email-info">
-                                            <p>John Doe</p>
-                                            <p>johndoe@gmail.com</p>
+                                            <p class="alt-name">John Doe</p>
+                                            <p class="alt-email">johndoe@gmail.com</p>
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +158,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="sign-out">
+                        <div id="no-accounts">
+                            <img src="images/chrome-white.png" alt="" width="50px">
+                            <p>no accounts signed in.</p>
+                            <div class="no-accounts-sign-in" onclick="addAccount()">
+                                <p>Sign In</p>
+                            </div>
+                        </div>
+                        <div id="sign-out" onclick="signOutAll()">
                             <div class="sign-out-image">
                                 <img src="images/log-out.png" alt="">    
                             </div>

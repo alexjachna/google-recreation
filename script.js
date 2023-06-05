@@ -237,9 +237,15 @@ window.addEventListener('click', ({ target }) => {
   });
 
 function addAccount() {
-    if (document.getElementsByClassName('alt-accounts-container')[0].childElementCount < 4) {
-        let altAccounts = document.getElementsByClassName('alt-accounts-container')[0].innerHTML;
-        localStorage.setItem('accounts', altAccounts)
+    let accounts = document.getElementById('accounts').innerHTML;
+    localStorage.setItem('accounts', accounts);
+
+    console.log(accounts);
+
+    if (document.getElementsByClassName('main-account')[0].childElementCount == 0) {
+        window.location.replace("./account.html");
+    }
+    else if (document.getElementsByClassName('alt-accounts-container')[0].childElementCount < 4) {
         window.location.replace("./account.html");
     }
     else {
@@ -249,29 +255,126 @@ function addAccount() {
 }
 
 function insertAccount() {
-    let altAccounts = document.getElementsByClassName('alt-accounts-container')[0];
 
-    altAccounts.innerHTML = "";
-    altAccounts.innerHTML = localStorage.getItem('accounts');
+    let accounts = document.getElementById('accounts');
+
+    accounts.innerHTML = "";
+    accounts.innerHTML = localStorage.getItem('accounts');
 
     var randomNum = Math.floor(Math.random() * imageArray.length);  
-
     const email = localStorage.getItem('myEmail');
     const name = localStorage.getItem('myName');
     const randomImage = imageArray[randomNum];
 
+    console.log(accounts.innerHTML);
+
+    let mainAccVal = accounts.getElementsByClassName('main-account')[0].childElementCount;
+
+    console.log(mainAccVal);
+
+    // // If all accounts signed out
+    if (mainAccVal == 0) {
+        console.log('removed all accounts PLUS MAIN!')
+
+        var mainAcc = document.getElementsByClassName('main-account')[0];
+
+        var itemContent = `<div class="ma-left">
+            <div class="account-image">
+                <img class="main-img" src=${randomImage} alt="">
+                <div class="change-account-image">
+                    <img src="images/camera.png" alt="">
+                </div>
+            </div>  
+        </div>
+        <div class="ma-right">
+            <div class="email-info">
+                <p class="main-name">${name}</p>
+                <p class="main-email">${email}</p>
+            </div>
+            <div class="manage-account">
+                <p>Manage your Google Account</p>
+            </div>
+        </div>`
+
+        mainAcc.innerHTML = itemContent;
+    }
+
+    else {
+        console.log('didnt sign out all accounts!');
+
+        var altsContainer = document.getElementsByClassName('alt-accounts-container')[0];
+        var newAccount = document.createElement('div');
+        newAccount.classList.add('alt-account');
+        newAccount.setAttribute("onclick", "switchAccount(this)");
+        var itemContent = `
+        <div class="alt-image" onclick="switchAccount(this)">
+            <img class="alt-img" src=${randomImage} alt="">
+        </div>
+        <div class="email-info">
+            <p class="alt-name">${name}</p>
+            <p class="alt-email">${email}</p>
+        </div>`
+
+        newAccount.innerHTML = itemContent;
+        altsContainer.append(newAccount);
+    }
+}
+
+function switchAccount(item) {
+
+    console.log('hello');
+    // 1. Get current main account name, email, pic
+    let mainAccount = document.getElementsByClassName('main-account')[0];
+    let mainName = mainAccount.getElementsByClassName('main-name')[0].innerText;
+    let mainEmail = mainAccount.getElementsByClassName('main-email')[0].innerText;
+    let mainImage = mainAccount.getElementsByClassName('main-img')[0].src;
+
+    console.log(mainName, mainEmail, mainImage);
+
+    // 2. Get items name, email, pic
+    let itemName = item.getElementsByClassName('alt-name')[0].innerText;
+    let itemEmail = item.getElementsByClassName('alt-email')[0].innerText;
+    let itemImage = item.getElementsByClassName('alt-img')[0].src;
+
+    console.log(itemName, itemEmail, itemImage);
+
+    // 3. Replace main-accounts content with selectedItem
+    mainAccount.getElementsByClassName('main-name')[0].innerText = itemName;
+    mainAccount.getElementsByClassName('main-email')[0].innerText = itemEmail;
+    mainAccount.getElementsByClassName('main-img')[0].src = itemImage;
+
+    // 4. remove selectedItem
+    item.remove();
+
+    // 5. Make new account with step1's main account info
     var altsContainer = document.getElementsByClassName('alt-accounts-container')[0];
     var newAccount = document.createElement('div');
     newAccount.classList.add('alt-account');
+    newAccount.setAttribute("onclick", "switchAccount(this)");
     var itemContent = `
     <div class="alt-image">
-        <img src=${randomImage} alt="">
+        <img class="alt-img" src=${mainImage} alt="">
     </div>
     <div class="email-info">
-        <p>${name}</p>
-        <p>${email}</p>
+        <p class="alt-name">${mainName}</p>
+        <p class="alt-email">${mainEmail}</p>
     </div>`
 
     newAccount.innerHTML = itemContent;
     altsContainer.append(newAccount);
+}
+
+function signOutAll() {
+    let accounts = document.getElementById('accounts');
+    let noAccounts = document.getElementById('no-accounts');
+    let signOut = document.getElementById('sign-out');
+    let mainAccount = document.getElementsByClassName('main-account')[0];
+    let altAccounts = document.getElementsByClassName('alt-accounts-container')[0];
+
+    accounts.style.display = "none";
+    signOut.style.display = "none";
+    noAccounts.style.display = "flex";
+    
+    mainAccount.innerHTML = "";
+    altAccounts.innerHTML = "";
 }
