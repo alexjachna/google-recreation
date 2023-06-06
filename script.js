@@ -321,8 +321,6 @@ function insertAccount() {
 }
 
 function switchAccount(item) {
-
-    console.log('hello');
     // 1. Get current main account name, email, pic
     let mainAccount = document.getElementsByClassName('main-account')[0];
     let mainName = mainAccount.getElementsByClassName('main-name')[0].innerText;
@@ -362,6 +360,14 @@ function switchAccount(item) {
 
     newAccount.innerHTML = itemContent;
     altsContainer.append(newAccount);
+
+    // 6. Switch .google-account-icon and hover text
+    document.getElementsByClassName('google-account-icon')[0].src = itemImage;
+    document.getElementsByClassName('hover-name')[0].innerText = itemName;
+    document.getElementsByClassName('hover-email')[0].innerText = itemEmail;
+
+    // 7. Hide popup
+    gmailAccounts.classList.remove('active');
 }
 
 function signOutAll() {

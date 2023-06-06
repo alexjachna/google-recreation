@@ -69,12 +69,51 @@ nav > a p {
 }
 
 #google-account {
+    position: relative;
     width: 32px;
     height: 32px;
-    background-image: url(images/MoraineLake2.jpg);
-    background-size: cover;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.google-account-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+#google-account-hover {
+    font-family: arial,sans-serif;
+    position: absolute;
+    padding: 0 8px;
+    top: 40px;
+    right: -10px;
+    width: 170px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: rgb(54,58,60);
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    opacity: 0;
+    transition: 0.1s opacity;
+}
+
+#google-account:hover #google-account-hover {
+    transition-delay: 0.6s;
+    opacity: 1;
+}
+
+#google-account-hover > p:nth-child(1) {
+    padding: 2px 0;
+    font-weight: bolder;
+}
+
+#google-account-hover > p:nth-child(2), #google-account-hover > p:nth-child(3) {
+    padding: 1px 0;
+    opacity: 0.7;
 }
 
 #google-account:hover {
@@ -408,8 +447,8 @@ footer {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 64px;
-    right: 15px;
+    top: 50px;
+    right: 0;
     border-radius: 28px;
     width: 376px;
     height: 544px;
