@@ -232,6 +232,8 @@ window.addEventListener('click', ({ target }) => {
         else {
             console.log('storage is empty.')
         }
+        // otherApps.style.pointerEvents = "none";
+        // gmailAccounts.style.pointerEvents = "none";
         popup.classList.add('active');  
     }
   });
@@ -291,9 +293,11 @@ function insertAccount() {
                 <p class="main-name">${name}</p>
                 <p class="main-email">${email}</p>
             </div>
-            <div class="manage-account">
-                <p>Manage your Google Account</p>
-            </div>
+            <a href="https://www.google.com/account/about/">
+                <div class="manage-account">
+                    <p>Manage your Google Account</p>
+                </div>
+            </a> 
         </div>`
 
         mainAcc.innerHTML = itemContent;

@@ -42,6 +42,7 @@ nav {
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,6 +51,30 @@ nav {
 
 #nine-dots:hover {
     background-color: rgba(185, 185, 185, 0.1);
+}
+
+#nine-dots-hover {
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    border-radius: 5px;
+    background-color: rgb(54,58,60);
+    width: 90px;
+    height: 26px;
+    top: 50px;
+    right: -25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transition: 0.1s opacity;
+}
+
+#nine-dots:hover #nine-dots-hover {
+    transition-delay: 0.6s;
+    opacity: 1;
 }
 
 #nine-dots.active #other-apps {
@@ -564,6 +589,10 @@ footer {
     color: #e3e3e3;
 }
 
+.ma-right a {
+    color: #e3e3e3;
+}
+
 .email-info :nth-child(1) {
     font-size: 14px;
 }
@@ -719,8 +748,8 @@ footer {
     grid-template-columns: repeat(3, 95px);
     grid-template-rows: repeat(6, 100px);
     position: absolute;
-    top: 64px;
-    right: 15px;
+    top: 55px;
+    right: -50px;
     width: 310px;
     height: 420px;
     border-radius: 8px;
