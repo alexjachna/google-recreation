@@ -59,3 +59,10 @@ v7: Added account.html content
 This version includes just the HTML/CSS of the ability to add a gmail account. Functionality will only include the ability to input a username, which will then be given a random image as their wallpaper/profile picture. This will be added back to the list of gmail accounts, which will be limited to 5.
 
 ![image](https://github.com/alexjachna/google-recreation/assets/57778785/03cb46c2-ad1f-4fce-8229-e3a12ce20a05)
+
+v8: Added 'customize chrome' feature content
+
+This version includes updated responsiveness within the hovering of nav items, as well as complete functionality of the 'customize page' button in the bottom right of the page. This includes the ability to hide shortcuts, as well as the ability to change themes.
+
+![image](https://github.com/alexjachna/google-recreation/assets/57778785/9cf6d43d-9e80-4307-be04-4796fb9d3178)
+
