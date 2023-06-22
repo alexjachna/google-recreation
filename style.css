@@ -13,10 +13,15 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    display: flex;
+}
+
 #main {
     width: 100%;
     height: 100vh;
     background-color: rgb(5,5,5);
+    position: relative;
 }
 
 header {
@@ -38,7 +43,7 @@ nav {
     align-items: center;
 }
 
-#nine-dots {
+#nine-dots, #nine-dots-nav {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -47,10 +52,6 @@ nav {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-}
-
-#nine-dots:hover {
-    background-color: rgba(185, 185, 185, 0.1);
 }
 
 #nine-dots-hover {
@@ -72,7 +73,11 @@ nav {
     transition: 0.1s opacity;
 }
 
-#nine-dots:hover #nine-dots-hover {
+#nine-dots-nav:hover {
+    background-color: rgba(185, 185, 185, 0.1);
+}
+
+#nine-dots-nav:hover #nine-dots-hover {
     transition-delay: 0.6s;
     opacity: 1;
 }
@@ -81,7 +86,7 @@ nav {
     display: grid;
 }
 
-#nine-dots > img {
+#nine-dots-nav > img {
     width: 16px;
     filter: invert(90%);
 }
@@ -95,9 +100,18 @@ nav > a p {
 
 #google-account {
     position: relative;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+}
+
+#google-account-nav {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -111,7 +125,7 @@ nav > a p {
     font-family: arial,sans-serif;
     position: absolute;
     padding: 0 8px;
-    top: 40px;
+    top: 50px;
     right: -10px;
     width: 170px;
     height: 60px;
@@ -126,7 +140,7 @@ nav > a p {
     transition: 0.1s opacity;
 }
 
-#google-account:hover #google-account-hover {
+#google-account-nav:hover #google-account-hover {
     transition-delay: 0.6s;
     opacity: 1;
 }
@@ -141,8 +155,8 @@ nav > a p {
     opacity: 0.7;
 }
 
-#google-account:hover {
-    box-shadow: 0px 0px 0px 4px rgba(185, 185, 185, 0.1);
+#google-account-nav:hover {
+    background-color:rgba(185, 185, 185, 0.1);
 }
 
 #google-account.active #gmail-accounts {
@@ -593,6 +607,10 @@ footer {
     color: #e3e3e3;
 }
 
+.ma-right a:hover {
+    text-decoration: none;
+}
+
 .email-info :nth-child(1) {
     font-size: 14px;
 }
@@ -667,6 +685,10 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+#accounts-extra a {
+    text-decoration: none;
 }
 
 #accounts-extra span, #accounts-extra p {
@@ -807,4 +829,198 @@ footer {
     font-size: 14px;
     font-weight: 200;
     color: white;
+}
+
+
+/* Customize Box */
+
+#customize-container {
+    width: 600px;
+    height: 100vh;
+    background-color: black;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#customize-container.active {
+    display: flex;
+}
+
+#customizer {
+    width: 420px;
+    height: 95vh;
+    background-color: rgb(32,33,36);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#customize-nav {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px 5px 0 0;
+    background-color: rgb(41,42,45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.c-nav-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.c-nav-title > img {
+    width: 16px;
+    filter: invert(100%);
+    opacity: 0.8;
+}
+
+.c-nav-title > p {
+    padding-left: 10px;
+}
+
+.c-nav-exit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+
+.c-nav-exit img {
+    width: 16px;
+    filter: invert(50%);
+}
+
+.c-nav-exit:hover {
+    transition: all 0.2s;
+    background-color: rgb(55,57,60);
+    cursor: pointer;
+}
+
+#customize-appearance {
+    width: 100%;
+    height: 300px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly
+}
+
+#customize-appearance > p {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+}
+
+#customize-appearance a .chrome-store {
+    color: black;
+}
+
+.chrome-store {
+    width: 250px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(138,180,248);
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.chrome-store img {
+    width: 16px;
+    filter: invert(100%);
+}
+
+.chrome-store p {
+    padding-left: 8px;
+}
+
+.themes {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.theme.active {
+    border: 2px solid rgb(138,180,248);
+    filter: brightness(200%);
+}
+
+.theme:hover {
+    transition: all 0.1s;
+    filter: brightness(200%);
+}
+
+#customize-shortcuts {
+    width: 100%;
+    height: 250px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+#customize-shortcuts > p {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+}
+
+.show-shortcuts {
+    width: 250px;
+    margin-top: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.shortcut-toggle {
+    position: relative;
+    width: 40px;
+    height: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: rgb(85,106,142);
+}
+
+.shortcut-circle {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(138,180,248);
+    transition: all 0.5s;
+    transform: translate(100%);
+}
+
+.shortcut-circle.disabled {
+    transition: all 0.5s;
+    transform: translate(0%);
 }

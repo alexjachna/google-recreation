@@ -1,8 +1,10 @@
 // Global Variables
+const mainContainer = document.getElementById('main');
 const editMenu = document.getElementById('edit-wrapper');
 const bookmarks = document.getElementById('bookmarks');
 const otherApps = document.getElementById('nine-dots');
 const gmailAccounts = document.getElementById('google-account');
+const customizer = document.getElementById('customize-container');
 const popups = [otherApps, gmailAccounts];
 const imageArray = ["images/account-images/landscape-1.jpg", "images/account-images/landscape-2.jpg", "images/account-images/landscape-3.jpg", "images/account-images/landscape-4.jpg", "images/account-images/landscape-5.jpg"]
 
@@ -222,6 +224,7 @@ window.addEventListener('click', ({ target }) => {
     const clickedOnClosedPopup = popup && !popup.classList.contains('active');
     
     popups.forEach(p => p.classList.remove('active'));
+    popups.forEach(p => p.style.backgroundColor = 'transparent');
     
     if (clickedOnClosedPopup) {
         if (localStorage.getItem('myEmail') !== null) {
@@ -232,8 +235,8 @@ window.addEventListener('click', ({ target }) => {
         else {
             console.log('storage is empty.')
         }
-        // otherApps.style.pointerEvents = "none";
-        // gmailAccounts.style.pointerEvents = "none";
+
+        popup.style.backgroundColor = "rgba(185, 185, 185, 0.1)";
         popup.classList.add('active');  
     }
   });
@@ -387,4 +390,38 @@ function signOutAll() {
     
     mainAccount.innerHTML = "";
     altAccounts.innerHTML = "";
+}
+
+// Customizer Methods
+
+function openCustomizer() {
+    customizer.classList.toggle('active');
+}
+
+function setTheme(theme) {
+    let newColor = theme.style.backgroundColor;
+    let themes = document.querySelectorAll('.theme');
+
+    themes.forEach(p => p.classList.remove('active'));
+
+    theme.classList.add('active');
+    
+    mainContainer.style.backgroundColor = newColor;
+}
+
+function hideShortcuts() {
+    let shortcutCircle = document.getElementsByClassName('shortcut-circle')[0];
+
+    shortcutCircle.classList.toggle('disabled');
+
+    if (shortcutCircle.classList.contains('disabled')) {
+        document.getElementsByClassName('shortcut-toggle')[0].style.backgroundColor = "grey";
+        shortcutCircle.style.backgroundColor = "white";
+        bookmarks.style.display = "none";
+    }
+    else {
+        document.getElementsByClassName('shortcut-toggle')[0].style.backgroundColor = "rgb(85,106,142)";
+        shortcutCircle.style.backgroundColor = "rgb(138,180,248)";
+        bookmarks.style.display = "grid";
+    }
 }

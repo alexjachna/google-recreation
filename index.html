@@ -15,10 +15,12 @@
                 <a href="https://mail.google.com/"><p class="nav-item">Gmail</p></a>
                 <a href="https://images.google.ca/"><p class="nav-item">Images</p></a>
                 <div id="nine-dots" class="popup">
-                    <div id="nine-dots-hover">
-                        <p>Google Apps</p>
-                    </div>
-                    <img src="images/nine-dots.png" alt="">
+                    <div id="nine-dots-nav">
+                        <img src="images/nine-dots.png" alt="">
+                        <div id="nine-dots-hover">
+                            <p>Google Apps</p>
+                        </div>
+                    </div>   
                     <div id="other-apps" onclick="preventWindowClose()">
                         <a href="https://www.google.com/">
                             <div class="app-item">
@@ -120,11 +122,13 @@
                     </div>
                 </div>
                 <div id="google-account" class="popup">
-                    <img class="google-account-icon" src="images/MoraineLake2.jpg" alt="">
-                    <div id="google-account-hover">
-                        <p>Google Account</p>
-                        <p class="hover-name">Alex Jachna</p>
-                        <p class="hover-email">alex.jachna1@gmail.com</p>
+                    <div id="google-account-nav">
+                        <img class="google-account-icon" src="images/MoraineLake2.jpg" alt="">
+                        <div id="google-account-hover">
+                            <p>Google Account</p>
+                            <p class="hover-name">Alex Jachna</p>
+                            <p class="hover-email">alex.jachna1@gmail.com</p>
+                        </div>
                     </div>
                     <div id="gmail-accounts" onclick="preventWindowClose()">
                         <div id="accounts">
@@ -183,9 +187,9 @@
                             <span>Sign out of all accounts</span>
                         </div>
                         <div id="accounts-extra">
-                            <span>Privacy Policy</span>
+                            <a href="https://policies.google.com/privacy?hl=en"><span>Privacy Policy</span></a>
                             <p>•</p>
-                            <span>Terms of Service</span>
+                            <a href="https://policies.google.com/terms?hl=en"><span>Terms of Service</span></a>
                         </div>
                     </div>
                 </div>
@@ -319,10 +323,49 @@
             </div>
         </section>
         <footer>
-            <div id="edit-page" title="Customize this page">
+            <div id="edit-page" title="Customize this page" onclick="openCustomizer()">
                 <img src="images/pencil.png" alt="">
             </div>
         </footer>
+    </div>
+
+    <div id="customize-container">
+        <div id="customizer">
+            <div id="customize-nav">
+                <div class="c-nav-title">
+                    <img src="images/pencil.png" alt="">
+                    <p>Customize Chrome</p>
+                </div>
+                <div class="c-nav-exit" title="Close" onclick="openCustomizer()">
+                    <img src="images/x-icon.png" alt="">
+                </div>
+            </div>
+            <div id="customize-appearance">
+                <p>Appearance</p>
+                <a href="https://chrome.google.com/webstore/category/themes">
+                    <div class="chrome-store">
+                        <img src="images/chrome-white.png" alt="">
+                        <p>Chrome web store</p>
+                    </div>
+                </a>
+                <p>Themes</p>
+                <div class="themes">
+                    <div class="theme active" title="Midnight Black" style="background-color: rgb(5,5,5)" onclick="setTheme(this)"></div>
+                    <div class="theme" title="Red" style="background-color: rgb(71, 3, 3)" onclick="setTheme(this)"></div>
+                    <div class="theme" title="Blue" style="background-color: rgb(32, 35, 71)" onclick="setTheme(this)"></div>
+                    <div class="theme" title="Gloomy Green" style="background-color: rgb(2, 32, 1)" onclick="setTheme(this)"></div>
+                </div>
+            </div>
+            <div id="customize-shortcuts">
+                <p>Shortcuts</p>
+                <div class="show-shortcuts">
+                    <p>Show shortcuts</p>
+                    <div class="shortcut-toggle" onclick="hideShortcuts()">
+                        <div class="shortcut-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="edit-wrapper" onclick="hideEditPopup()"></div>
