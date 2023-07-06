@@ -239,7 +239,6 @@ window.addEventListener('click', ({ target }) => {
 
         popup.style.backgroundColor = "rgba(185, 185, 185, 0.1)";
         popup.classList.add('active');  
-        popup.style.pointerEvents = "none";
     }
   });
 
